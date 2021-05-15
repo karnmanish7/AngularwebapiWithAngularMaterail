@@ -1,0 +1,86 @@
+<div class="container">
+
+    <mat-card class="mat-elevation-z8">
+     
+      <br><br>
+      <mat-card-content>
+     
+        <form [formGroup]="medicineForm" (ngSubmit)="onFormSubmit()">
+          
+          <table>
+            <tr>
+              <td class="tbl1">
+                <mat-form-field class="demo-full-width">
+                  <input formControlName="Name" matTooltip="Enter Medicine Name" matInput placeholder="Name" autocomplete="off">
+                </mat-form-field>
+                 <mat-error>
+                  <span *ngIf="!medicineForm.get('Name').value && medicineForm.get('Name').touched"></span>
+                </mat-error> 
+              </td>
+               <td class="tbl1">
+                <mat-form-field class="demo-full-width">
+                  <input formControlName="Brand" matTooltip="Enter Brand Name" matInput placeholder="BrandName" autocomplete="off">
+                </mat-form-field>
+                <mat-error>
+                  <span *ngIf="!medicineForm.get('Brand').value && medicineForm.get('Brand').touched"></span>
+                </mat-error>
+              </td>
+              
+              <td class="tbl1">
+                <mat-form-field class="demo-full-width">
+                  <input formControlName="Price" matTooltip="Enter Price" matInput placeholder="Price" autocomplete="off">
+                </mat-form-field>
+                <mat-error>
+                  <span *ngIf="!medicineForm.get('Price').value && medicineForm.get('Price').touched"></span>
+                </mat-error>
+              </td>
+              <td class="tbl1">
+                <mat-form-field class="demo-full-width">
+                  <input formControlName="Quantity" matTooltip="Enter Quantity" matInput placeholder="Quantity" autocomplete="off">
+                </mat-form-field>
+                <mat-error>
+                  <span *ngIf="!medicineForm.get('Quantity').value && medicineForm.get('Quantity').touched"></span>
+                </mat-error>
+              </td> 
+              <td class="tbl1">
+                <mat-form-field class="demo-full-width">
+                  <input formControlName="Notes" matTooltip="Enter Notes" matInput placeholder="Notes" autocomplete="off">
+                </mat-form-field>
+                <mat-error>
+                  <span *ngIf="!medicineForm.get('Notes').value && medicineForm.get('Notes').touched"></span>
+                </mat-error>
+              </td>
+            <td class="tbl1">
+                <mat-form-field class="demo-full-width">
+                  <input matInput [matDatepicker]="picker" matTooltip="Enter Date Of Expiry" formControlName="ExpiryDate" placeholder="Date of Expiry" autocomplete="off">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <mat-error>
+                  <span *ngIf="!medicineForm.get('ExpiryDate').value && medicineForm.get('ExpiryDate').touched"></span>
+                </mat-error>
+              </td>
+               
+            </tr>
+           
+            <tr>
+              <td class="content-center">
+                <button type="submit" mat-raised-button color="accent" matTooltip="Submit" [disabled]="!medicineForm.valid">Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="reset" mat-raised-button color="accent" matTooltip="Reset" (click)="resetForm()">Reset</button>
+              </td>
+              <td>
+                <p *ngIf="dataSaved" style="color:rgb(0, 128, 0);font-size:20px;font-weight:bold" Class="success" align="left">
+                  {{massage}}
+                </p>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+  
+          <br><br>
+  
+</form>
+</mat-card-content>
+</mat-card>
+</div>  
